@@ -16,7 +16,7 @@ public class Meter implements Metered {
     private final EWMA m5Rate = EWMA.fiveMinuteEWMA();
     private final EWMA m15Rate = EWMA.fifteenMinuteEWMA();
 
-    private final LongAdder count = new LongAdder();
+    private final LongAdderFacade count = LongAdderFactory.create();
     private final long startTime;
     private final AtomicLong lastTick;
     private final Clock clock;
